@@ -1,6 +1,14 @@
 import random
-guess = int(input("Please guess a number:"))
-def num_guess(): return int(input("Please guess again: "))
+#guess = int(input("Please guess a number:"))
+def num_guess():#prompt as parameter
+    guess_attempt = input("Please guess again: ")
+    try:
+        int(guess_attempt)
+    except ValueError:
+            print("Error: A number was not detected")
+            return(num_guess())
+    return int(guess_attempt)
+guess = num_guess()
 seed = 15
 number = random.randint(2,seed)
 guess_counter = 1
